@@ -1,32 +1,32 @@
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { AnimatedGroup } from '@/components/ui/animated-group';
-import { FloatingIcons } from './FloatingIcons';
-import { Logos3 } from '@/components/ui/logos3';
-import dashboardPreview from '@/assets/dashboard-preview.png';
-import paypalLogo from '@/assets/paypal-logo.png';
-import bitcoinLogo from '@/assets/bitcoin-logo.png';
-import mastercardLogo from '@/assets/mastercard-logo.png';
-import visaLogo from '@/assets/visa-logo.png';
-import googlepayLogo from '@/assets/googlepay-logo.png';
-import applepayLogo from '@/assets/applepay-logo.png';
-import amexLogo from '@/assets/amex-logo.png';
-import xrpLogo from '@/assets/xrp-logo.png';
-import ethereumLogo from '@/assets/ethereum-logo.png';
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { AnimatedGroup } from "@/components/ui/animated-group";
+import { FloatingIcons } from "./FloatingIcons";
+import { Logos3 } from "@/components/ui/logos3";
+import dashboardPreview from "@/assets/dashboard-preview.png";
+import paypalLogo from "@/assets/paypal-logo.png";
+import bitcoinLogo from "@/assets/bitcoin-logo.png";
+import mastercardLogo from "@/assets/mastercard-logo.png";
+import visaLogo from "@/assets/visa-logo.png";
+import googlepayLogo from "@/assets/googlepay-logo.png";
+import applepayLogo from "@/assets/applepay-logo.png";
+import amexLogo from "@/assets/amex-logo.png";
+import xrpLogo from "@/assets/xrp-logo.png";
+import ethereumLogo from "@/assets/ethereum-logo.png";
 
 const transitionVariants = {
   item: {
     hidden: {
       opacity: 0,
-      filter: 'blur(12px)',
+      filter: "blur(12px)",
       y: 12,
     },
     visible: {
       opacity: 1,
-      filter: 'blur(0px)',
+      filter: "blur(0px)",
       y: 0,
       transition: {
-        type: 'spring' as const,
+        type: "spring" as const,
         bounce: 0.3,
         duration: 1.5,
       },
@@ -42,15 +42,15 @@ interface IconData {
 }
 
 const floatingIcons: IconData[] = [
-  { id: 1, image: paypalLogo, className: 'top-[10%] left-[10%]', alt: 'PayPal' },
-  { id: 2, image: bitcoinLogo, className: 'top-[20%] right-[8%]', alt: 'Bitcoin' },
-  { id: 3, image: mastercardLogo, className: 'top-[5%] left-[30%]', alt: 'Mastercard' },
-  { id: 4, image: visaLogo, className: 'top-[5%] right-[30%]', alt: 'Visa' },
-  { id: 5, image: googlepayLogo, className: 'bottom-[8%] left-[25%]', alt: 'Google Pay' },
-  { id: 6, image: applepayLogo, className: 'top-[40%] left-[15%]', alt: 'Apple Pay' },
-  { id: 7, image: amexLogo, className: 'top-[75%] right-[25%]', alt: 'American Express' },
-  { id: 8, image: xrpLogo, className: 'top-[90%] left-[70%]', alt: 'XRP' },
-  { id: 9, image: ethereumLogo, className: 'top-[50%] right-[5%]', alt: 'Ethereum' },
+  { id: 1, image: paypalLogo, className: "top-[10%] left-[10%]", alt: "PayPal" },
+  { id: 2, image: bitcoinLogo, className: "top-[20%] right-[8%]", alt: "Bitcoin" },
+  { id: 3, image: mastercardLogo, className: "top-[5%] left-[30%]", alt: "Mastercard" },
+  { id: 4, image: visaLogo, className: "top-[5%] right-[30%]", alt: "Visa" },
+  { id: 5, image: googlepayLogo, className: "bottom-[8%] left-[25%]", alt: "Google Pay" },
+  { id: 6, image: applepayLogo, className: "top-[40%] left-[15%]", alt: "Apple Pay" },
+  { id: 7, image: amexLogo, className: "top-[75%] right-[25%]", alt: "American Express" },
+  { id: 8, image: xrpLogo, className: "top-[90%] left-[70%]", alt: "XRP" },
+  { id: 9, image: ethereumLogo, className: "top-[50%] right-[5%]", alt: "Ethereum" },
 ];
 
 const paymentLogos = [
@@ -66,7 +66,6 @@ const paymentLogos = [
 ];
 
 export function Hero() {
-
   return (
     <section id="home" className="relative overflow-hidden">
       {/* Background gradients */}
@@ -95,9 +94,7 @@ export function Hero() {
                 href="#services"
                 className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
               >
-                <span className="text-foreground text-sm">
-                  Introducing Advanced Payment Solutions
-                </span>
+                <span className="text-foreground text-sm">Introducing Advanced Payment Solutions</span>
                 <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
                 <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
@@ -116,9 +113,8 @@ export function Hero() {
                 Efficient Payment Solutions for Modern Business
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-balance text-lg text-muted-foreground">
-                Specializing in Alternative Payment Methods (APMs) and corporate
-                banking services. We provide consulting services to support your
-                growth and optimize your business transactions.
+                Specializing in Alternative Payment Methods (APMs) and corporate banking services. We provide consulting
+                services to support your growth and optimize your business transactions.
               </p>
             </AnimatedGroup>
 
@@ -143,12 +139,7 @@ export function Hero() {
                   </a>
                 </Button>
               </div>
-              <Button
-                asChild
-                size="lg"
-                variant="ghost"
-                className="h-11 rounded-xl px-5"
-              >
+              <Button asChild size="lg" variant="ghost" className="h-11 rounded-xl px-5">
                 <a href="#about">
                   <span className="text-nowrap">Learn More</span>
                 </a>
@@ -185,12 +176,8 @@ export function Hero() {
           </div>
         </AnimatedGroup>
 
-        <Logos3 
-          heading="Specializing In 50 + Different Payment Methods"
-          logos={paymentLogos}
-        />
+        <Logos3 heading="Specializing In 100+ Different Payment Methods" logos={paymentLogos} />
       </div>
-
     </section>
   );
 }
