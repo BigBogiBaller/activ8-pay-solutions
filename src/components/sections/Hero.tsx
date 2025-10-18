@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { FloatingIcons } from './FloatingIcons';
 import {
   IconCreditCard,
   IconWallet,
@@ -14,7 +12,6 @@ import {
   IconLock,
   IconCurrency,
 } from '@/components/icons/PaymentIcons';
-import { useRef } from 'react';
 
 const transitionVariants = {
   item: {
@@ -53,103 +50,10 @@ const floatingIcons: IconData[] = [
   { id: 8, icon: IconCurrency, className: 'bottom-[30%] right-[20%]' },
 ];
 
-const Icon = ({
-  mouseX,
-  mouseY,
-  iconData,
-  index,
-}: {
-  mouseX: React.MutableRefObject<number>;
-  mouseY: React.MutableRefObject<number>;
-  iconData: IconData;
-  index: number;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 300, damping: 20 });
-  const springY = useSpring(y, { stiffness: 300, damping: 20 });
-
-  useEffect(() => {
-    const handleMouseMove = () => {
-      if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        const distance = Math.sqrt(
-          Math.pow(mouseX.current - (rect.left + rect.width / 2), 2) +
-            Math.pow(mouseY.current - (rect.top + rect.height / 2), 2)
-        );
-
-        if (distance < 150) {
-          const angle = Math.atan2(
-            mouseY.current - (rect.top + rect.height / 2),
-            mouseX.current - (rect.left + rect.width / 2)
-          );
-          const force = (1 - distance / 150) * 50;
-          x.set(-Math.cos(angle) * force);
-          y.set(-Math.sin(angle) * force);
-        } else {
-          x.set(0);
-          y.set(0);
-        }
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [x, y, mouseX, mouseY]);
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{
-        x: springX,
-        y: springY,
-      }}
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        delay: index * 0.08,
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className={cn('absolute hidden lg:block', iconData.className)}
-    >
-      <motion.div
-        className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 p-3 rounded-3xl shadow-xl bg-card/80 backdrop-blur-md border border-border/10"
-        animate={{
-          y: [0, -8, 0, 8, 0],
-          x: [0, 6, 0, -6, 0],
-          rotate: [0, 5, 0, -5, 0],
-        }}
-        transition={{
-          duration: 5 + Math.random() * 5,
-          repeat: Infinity,
-          repeatType: 'mirror',
-          ease: 'easeInOut',
-        }}
-      >
-        <iconData.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
-      </motion.div>
-    </motion.div>
-  );
-};
-
 export function Hero() {
-  const mouseX = useRef(0);
-  const mouseY = useRef(0);
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
-    mouseX.current = event.clientX;
-    mouseY.current = event.clientY;
-  };
 
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-    >
+    <section id="home" className="relative overflow-hidden">
       {/* Background gradients */}
       <div
         aria-hidden
@@ -160,18 +64,8 @@ export function Hero() {
         <div className="h-[80rem] -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(205,100%,42%,.04)_0,hsla(205,100%,42%,.02)_80%,transparent_100%)]" />
       </div>
 
-      {/* Floating Icons */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none">
-        {floatingIcons.map((iconData, index) => (
-          <Icon
-            key={iconData.id}
-            mouseX={mouseX}
-            mouseY={mouseY}
-            iconData={iconData}
-            index={index}
-          />
-        ))}
-      </div>
+      {/* Floating Icons - Now using the FloatingIconsHero component styling */}
+      <FloatingIcons icons={floatingIcons} />
 
       <div
         aria-hidden

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
+import { useScroll } from '@/hooks/use-scroll';
 import logo from '@/assets/activ8pay-logo.png';
+import icon from '@/assets/activ8pay-icon.png';
 
 const menuItems = [
   { name: 'Home', href: '#home' },
@@ -13,89 +15,107 @@ const menuItems = [
 ];
 
 export function Header() {
-  const [menuState, setMenuState] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const scrolled = useScroll(50);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <nav className="px-2 py-2">
+    <header
+      className={cn(
+        'sticky top-0 z-50 mx-auto w-full max-w-5xl border-b border-transparent md:rounded-md md:border md:transition-all md:ease-out',
+        {
+          'bg-background/95 supports-[backdrop-filter]:bg-background/50 border-border backdrop-blur-lg md:top-4 md:max-w-4xl md:shadow':
+            scrolled && !open,
+          'bg-background/90': open,
+        }
+      )}
+    >
+      <nav
+        className={cn(
+          'flex h-16 w-full items-center justify-between px-4 md:h-14 md:transition-all md:ease-out',
+          {
+            'md:px-2': scrolled,
+          }
+        )}
+      >
+        <a href="#home" className="flex items-center">
+          <img 
+            src={scrolled ? icon : logo} 
+            alt="Activ8Pay" 
+            className={cn(
+              "transition-all duration-300",
+              scrolled ? "h-10" : "h-14 md:h-16"
+            )}
+          />
+        </a>
+
+        <div className="hidden items-center gap-2 md:flex">
+          {menuItems.map((item, i) => (
+            <a
+              key={i}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
+              href={item.href}
+            >
+              {item.name}
+            </a>
+          ))}
+          <Button variant="outline" size="sm">Sign In</Button>
+          <Button size="sm">Get Started</Button>
+        </div>
+
+        <Button
+          size="icon"
+          variant="outline"
+          onClick={() => setOpen(!open)}
+          className="md:hidden"
+        >
+          <MenuToggleIcon open={open} className="size-5" duration={300} />
+        </Button>
+      </nav>
+
+      <div
+        className={cn(
+          'bg-background/90 fixed top-16 right-0 bottom-0 left-0 z-50 flex flex-col overflow-hidden border-y md:hidden',
+          open ? 'block' : 'hidden'
+        )}
+      >
         <div
+          data-slot={open ? 'open' : 'closed'}
           className={cn(
-            'mx-auto max-w-6xl px-6 transition-all duration-300 lg:px-12',
-            isScrolled && 'bg-background/80 backdrop-blur-lg rounded-2xl border shadow-lg lg:px-5'
+            'data-[slot=open]:animate-in data-[slot=open]:zoom-in-95 data-[slot=closed]:animate-out data-[slot=closed]:zoom-out-95 ease-out',
+            'flex h-full w-full flex-col justify-between gap-y-2 p-4'
           )}
         >
-          <div className="relative flex items-center justify-between py-3 lg:py-4">
-            <a href="#home" className="flex items-center">
-              <img src={logo} alt="Activ8Pay" className="h-14 md:h-16" />
-            </a>
-
-            <button
-              onClick={() => setMenuState(!menuState)}
-              aria-label={menuState ? 'Close Menu' : 'Open Menu'}
-              className="lg:hidden p-2"
-            >
-              {menuState ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-
-            <ul className="hidden lg:flex gap-8 text-sm">
-              {menuItems.map((item, index) => (
-                <li key={index}>
-                  <a
-                    href={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className="hidden lg:flex gap-3">
-              <Button variant="outline" size="sm">
-                Sign In
-              </Button>
-              <Button size="sm">Get Started</Button>
-            </div>
+          <div className="grid gap-y-2">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors block px-3 py-2"
+                href={item.href}
+                onClick={() => setOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
-
-          {menuState && (
-            <div className="lg:hidden pb-6">
-              <ul className="space-y-4 mb-6">
-                {menuItems.map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href={item.href}
-                      onClick={() => setMenuState(false)}
-                      className="block text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col gap-3">
-                <Button variant="outline" className="w-full">
-                  Sign In
-                </Button>
-                <Button className="w-full">Get Started</Button>
-              </div>
-            </div>
-          )}
+          <div className="flex flex-col gap-2">
+            <Button variant="outline" className="w-full">
+              Sign In
+            </Button>
+            <Button className="w-full">Get Started</Button>
+          </div>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }
