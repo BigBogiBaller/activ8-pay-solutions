@@ -5,8 +5,6 @@ import { FloatingIcons } from './FloatingIcons';
 import {
   IconGoogle,
   IconApple,
-  IconMicrosoft,
-  IconFigma,
   IconGitHub,
   IconSlack,
   IconVercel,
@@ -51,8 +49,6 @@ interface IconData {
 const floatingIcons: IconData[] = [
   { id: 1, icon: IconGoogle, className: 'top-[10%] left-[10%]' },
   { id: 2, icon: IconApple, className: 'top-[20%] right-[8%]' },
-  { id: 3, icon: IconMicrosoft, className: 'top-[80%] left-[10%]' },
-  { id: 4, icon: IconFigma, className: 'bottom-[10%] right-[10%]' },
   { id: 5, icon: IconGitHub, className: 'top-[5%] left-[30%]' },
   { id: 6, icon: IconSlack, className: 'top-[5%] right-[30%]' },
   { id: 7, icon: IconVercel, className: 'bottom-[8%] left-[25%]' },
