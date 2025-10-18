@@ -1,24 +1,18 @@
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { FloatingIcons } from './FloatingIcons';
-import {
-  IconGoogle,
-  IconApple,
-  IconGitHub,
-  IconSlack,
-  IconVercel,
-  IconStripe,
-  IconDiscord,
-  IconX,
-  IconNotion,
-  IconSpotify,
-  IconDropbox,
-  IconTwitch,
-  IconLinear,
-  IconYouTube,
-} from '@/components/icons/FloatingCompanyIcons';
+import { Logos3 } from '@/components/ui/logos3';
 import dashboardPreview from '@/assets/dashboard-preview.png';
+import paypalLogo from '@/assets/paypal-logo.png';
+import bitcoinLogo from '@/assets/bitcoin-logo.png';
+import mastercardLogo from '@/assets/mastercard-logo.png';
+import visaLogo from '@/assets/visa-logo.png';
+import googlepayLogo from '@/assets/googlepay-logo.png';
+import applepayLogo from '@/assets/applepay-logo.png';
+import amexLogo from '@/assets/amex-logo.png';
+import xrpLogo from '@/assets/xrp-logo.png';
+import ethereumLogo from '@/assets/ethereum-logo.png';
 
 const transitionVariants = {
   item: {
@@ -42,25 +36,33 @@ const transitionVariants = {
 
 interface IconData {
   id: number;
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  image: string;
   className: string;
+  alt: string;
 }
 
 const floatingIcons: IconData[] = [
-  { id: 1, icon: IconGoogle, className: 'top-[10%] left-[10%]' },
-  { id: 2, icon: IconApple, className: 'top-[20%] right-[8%]' },
-  { id: 5, icon: IconGitHub, className: 'top-[5%] left-[30%]' },
-  { id: 6, icon: IconSlack, className: 'top-[5%] right-[30%]' },
-  { id: 7, icon: IconVercel, className: 'bottom-[8%] left-[25%]' },
-  { id: 8, icon: IconStripe, className: 'top-[40%] left-[15%]' },
-  { id: 9, icon: IconDiscord, className: 'top-[75%] right-[25%]' },
-  { id: 10, icon: IconX, className: 'top-[90%] left-[70%]' },
-  { id: 11, icon: IconNotion, className: 'top-[50%] right-[5%]' },
-  { id: 12, icon: IconSpotify, className: 'top-[55%] left-[5%]' },
-  { id: 13, icon: IconDropbox, className: 'top-[5%] left-[55%]' },
-  { id: 14, icon: IconTwitch, className: 'bottom-[5%] right-[45%]' },
-  { id: 15, icon: IconLinear, className: 'top-[25%] right-[20%]' },
-  { id: 16, icon: IconYouTube, className: 'top-[60%] left-[30%]' },
+  { id: 1, image: paypalLogo, className: 'top-[10%] left-[10%]', alt: 'PayPal' },
+  { id: 2, image: bitcoinLogo, className: 'top-[20%] right-[8%]', alt: 'Bitcoin' },
+  { id: 3, image: mastercardLogo, className: 'top-[5%] left-[30%]', alt: 'Mastercard' },
+  { id: 4, image: visaLogo, className: 'top-[5%] right-[30%]', alt: 'Visa' },
+  { id: 5, image: googlepayLogo, className: 'bottom-[8%] left-[25%]', alt: 'Google Pay' },
+  { id: 6, image: applepayLogo, className: 'top-[40%] left-[15%]', alt: 'Apple Pay' },
+  { id: 7, image: amexLogo, className: 'top-[75%] right-[25%]', alt: 'American Express' },
+  { id: 8, image: xrpLogo, className: 'top-[90%] left-[70%]', alt: 'XRP' },
+  { id: 9, image: ethereumLogo, className: 'top-[50%] right-[5%]', alt: 'Ethereum' },
+];
+
+const paymentLogos = [
+  { id: "logo-1", description: "PayPal", image: paypalLogo, className: "h-8 w-auto" },
+  { id: "logo-2", description: "Bitcoin", image: bitcoinLogo, className: "h-8 w-auto" },
+  { id: "logo-3", description: "Mastercard", image: mastercardLogo, className: "h-8 w-auto" },
+  { id: "logo-4", description: "Visa", image: visaLogo, className: "h-8 w-auto" },
+  { id: "logo-5", description: "Google Pay", image: googlepayLogo, className: "h-8 w-auto" },
+  { id: "logo-6", description: "Apple Pay", image: applepayLogo, className: "h-8 w-auto" },
+  { id: "logo-7", description: "American Express", image: amexLogo, className: "h-8 w-auto" },
+  { id: "logo-8", description: "XRP", image: xrpLogo, className: "h-8 w-auto" },
+  { id: "logo-9", description: "Ethereum", image: ethereumLogo, className: "h-8 w-auto" },
 ];
 
 export function Hero() {
@@ -182,6 +184,11 @@ export function Hero() {
             </div>
           </div>
         </AnimatedGroup>
+
+        <Logos3 
+          heading="Specializing In 50 + Different Payment Methods"
+          logos={paymentLogos}
+        />
       </div>
 
     </section>

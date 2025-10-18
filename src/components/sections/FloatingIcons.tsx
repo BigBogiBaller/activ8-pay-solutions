@@ -4,7 +4,9 @@ import { cn } from '@/lib/utils';
 
 interface IconData {
   id: number;
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+  image?: string;
+  alt?: string;
   className: string;
 }
 
@@ -89,7 +91,8 @@ const Icon = ({
           ease: 'easeInOut',
         }}
       >
-        <iconData.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+        {iconData.icon && <iconData.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />}
+        {iconData.image && <img src={iconData.image} alt={iconData.alt || 'Payment method'} className="w-8 h-8 md:w-10 md:h-10 object-contain" />}
       </motion.div>
     </motion.div>
   );
