@@ -50,7 +50,7 @@ const floatingIcons: IconData[] = [
   { id: 6, image: applepayLogo, className: "top-[40%] left-[15%]", alt: "Apple Pay" },
   { id: 7, image: amexLogo, className: "top-[15%] right-[8%]", alt: "American Express" },
   { id: 8, image: xrpLogo, className: "top-[30%] right-[12%]", alt: "XRP" },
-  { id: 9, image: ethereumLogo, className: "top-[20%] right-[5%]", alt: "Ethereum" },
+  { id: 9, image: ethereumLogo, className: "top-[22%] left-[9%]", alt: "Ethereum" },
 ];
 
 const paymentLogos = [
