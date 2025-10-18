@@ -8,6 +8,7 @@ import googlePay from "@/assets/googlepay-logo.png"
 import activ8pay from "@/assets/activ8pay-icon.png"
 import xrp from "@/assets/xrp-logo.png"
 import bitcoin from "@/assets/bitcoin-logo.png"
+import { Visual247 } from "./visual-247"
 
 const Skeleton = () => {
   const scale = [1, 1.1, 1]
@@ -64,7 +65,7 @@ const Skeleton = () => {
   }, [])
   
   return (
-    <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
+    <div className="group/animated-card p-8 overflow-hidden h-full relative flex items-center justify-center">
       <div className="flex flex-row shrink-0 justify-center items-center gap-2 relative z-50">
         <Container className="h-8 w-8 circle-1">
           <img
@@ -103,10 +104,8 @@ const Skeleton = () => {
         </Container>
       </div>
 
-      <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent">
-        <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
-          <Sparkles />
-        </div>
+      <div className="absolute inset-0 z-30">
+        <Visual247 mainColor="#3b82f6" secondaryColor="#8b5cf6" />
       </div>
     </div>
   )
