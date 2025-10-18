@@ -1,7 +1,20 @@
-import { ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
-import logo from '@/assets/activ8pay-logo.png';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import {
+  IconCreditCard,
+  IconWallet,
+  IconBank,
+  IconShield,
+  IconChart,
+  IconGlobe,
+  IconLock,
+  IconCurrency,
+} from '@/components/icons/PaymentIcons';
+import { useRef } from 'react';
 
 const transitionVariants = {
   item: {
@@ -23,42 +36,338 @@ const transitionVariants = {
   },
 };
 
-export function Hero() {
+interface IconData {
+  id: number;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  className: string;
+}
+
+const floatingIcons: IconData[] = [
+  { id: 1, icon: IconCreditCard, className: 'top-[15%] left-[10%]' },
+  { id: 2, icon: IconWallet, className: 'top-[25%] right-[15%]' },
+  { id: 3, icon: IconBank, className: 'top-[60%] left-[8%]' },
+  { id: 4, icon: IconShield, className: 'bottom-[20%] right-[10%]' },
+  { id: 5, icon: IconChart, className: 'top-[40%] right-[8%]' },
+  { id: 6, icon: IconGlobe, className: 'top-[70%] left-[20%]' },
+  { id: 7, icon: IconLock, className: 'top-[35%] left-[15%]' },
+  { id: 8, icon: IconCurrency, className: 'bottom-[30%] right-[20%]' },
+];
+
+const Icon = ({
+  mouseX,
+  mouseY,
+  iconData,
+  index,
+}: {
+  mouseX: React.MutableRefObject<number>;
+  mouseY: React.MutableRefObject<number>;
+  iconData: IconData;
+  index: number;
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 20 });
+  const springY = useSpring(y, { stiffness: 300, damping: 20 });
+
+  useEffect(() => {
+    const handleMouseMove = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        const distance = Math.sqrt(
+          Math.pow(mouseX.current - (rect.left + rect.width / 2), 2) +
+            Math.pow(mouseY.current - (rect.top + rect.height / 2), 2)
+        );
+
+        if (distance < 150) {
+          const angle = Math.atan2(
+            mouseY.current - (rect.top + rect.height / 2),
+            mouseX.current - (rect.left + rect.width / 2)
+          );
+          const force = (1 - distance / 150) * 50;
+          x.set(-Math.cos(angle) * force);
+          y.set(-Math.sin(angle) * force);
+        } else {
+          x.set(0);
+          y.set(0);
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [x, y, mouseX, mouseY]);
+
   return (
-    <section id="home" className="relative pt-32 pb-20 overflow-hidden">
+    <motion.div
+      ref={ref}
+      style={{
+        x: springX,
+        y: springY,
+      }}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        delay: index * 0.08,
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className={cn('absolute hidden lg:block', iconData.className)}
+    >
+      <motion.div
+        className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 p-3 rounded-3xl shadow-xl bg-card/80 backdrop-blur-md border border-border/10"
+        animate={{
+          y: [0, -8, 0, 8, 0],
+          x: [0, 6, 0, -6, 0],
+          rotate: [0, 5, 0, -5, 0],
+        }}
+        transition={{
+          duration: 5 + Math.random() * 5,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      >
+        <iconData.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+      </motion.div>
+    </motion.div>
+  );
+};
+
+export function Hero() {
+  const mouseX = useRef(0);
+  const mouseY = useRef(0);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
+    mouseX.current = event.clientX;
+    mouseY.current = event.clientY;
+  };
+
+  return (
+    <section
+      id="home"
+      className="relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Background gradients */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,hsl(var(--primary)/0.05)_100%)]"
-      />
-      
-      <div className="container mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto">
-          <AnimatedGroup variants={transitionVariants}>
-            <div className="mb-8">
-              <img src={logo} alt="Activ8Pay" className="h-16 mx-auto" />
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-b from-foreground to-foreground/70 text-transparent bg-clip-text">
-              Efficient Payment Solutions for Modern Business
-            </h1>
-            
-            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Specializing in Alternative Payment Methods (APMs) and corporate banking services. 
-              We provide consulting services to support your growth and optimize your business transactions.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="group">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Learn More
-              </Button>
-            </div>
-          </AnimatedGroup>
-        </div>
+        className="z-[2] absolute inset-0 pointer-events-none isolate opacity-50 contain-strict hidden lg:block"
+      >
+        <div className="w-[35rem] h-[80rem] -translate-y-[350px] absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(205,100%,42%,.08)_0,hsla(205,100%,42%,.02)_50%,hsla(205,100%,42%,0)_80%)]" />
+        <div className="h-[80rem] absolute left-0 top-0 w-56 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(205,100%,42%,.06)_0,hsla(205,100%,42%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
+        <div className="h-[80rem] -translate-y-[350px] absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(205,100%,42%,.04)_0,hsla(205,100%,42%,.02)_80%,transparent_100%)]" />
       </div>
+
+      {/* Floating Icons */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
+        {floatingIcons.map((iconData, index) => (
+          <Icon
+            key={iconData.id}
+            mouseX={mouseX}
+            mouseY={mouseY}
+            iconData={iconData}
+            index={index}
+          />
+        ))}
+      </div>
+
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]"
+      />
+
+      <div className="relative pt-24 md:pt-36">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
+            <AnimatedGroup variants={transitionVariants}>
+              <a
+                href="#services"
+                className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
+              >
+                <span className="text-foreground text-sm">
+                  Introducing Advanced Payment Solutions
+                </span>
+                <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+
+                <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
+                  <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
+                    <span className="flex size-6">
+                      <ArrowRight className="m-auto size-3" />
+                    </span>
+                    <span className="flex size-6">
+                      <ArrowRight className="m-auto size-3" />
+                    </span>
+                  </div>
+                </div>
+              </a>
+
+              <h1 className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] font-bold">
+                Efficient Payment Solutions for Modern Business
+              </h1>
+              <p className="mx-auto mt-8 max-w-2xl text-balance text-lg text-muted-foreground">
+                Specializing in Alternative Payment Methods (APMs) and corporate
+                banking services. We provide consulting services to support your
+                growth and optimize your business transactions.
+              </p>
+            </AnimatedGroup>
+
+            <AnimatedGroup
+              variants={{
+                container: {
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.05,
+                      delayChildren: 0.75,
+                    },
+                  },
+                },
+                ...transitionVariants,
+              }}
+              className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
+            >
+              <div className="bg-foreground/10 rounded-[14px] border p-0.5">
+                <Button asChild size="lg" className="rounded-xl px-5 text-base">
+                  <a href="#contact">
+                    <span className="text-nowrap">Get Started</span>
+                  </a>
+                </Button>
+              </div>
+              <Button
+                asChild
+                size="lg"
+                variant="ghost"
+                className="h-11 rounded-xl px-5"
+              >
+                <a href="#about">
+                  <span className="text-nowrap">Learn More</span>
+                </a>
+              </Button>
+            </AnimatedGroup>
+          </div>
+        </div>
+
+        <AnimatedGroup
+          variants={{
+            container: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                  delayChildren: 0.75,
+                },
+              },
+            },
+            ...transitionVariants,
+          }}
+        >
+          <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+            <div
+              aria-hidden
+              className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
+            />
+            <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1 ring-background bg-gradient-to-br from-primary/5 to-background">
+              <div className="aspect-video relative rounded-2xl border border-border/25 bg-gradient-to-br from-primary/10 to-background flex items-center justify-center">
+                <div className="text-center p-8">
+                  <h3 className="text-3xl font-bold mb-4">
+                    Payment Dashboard
+                  </h3>
+                  <p className="text-muted-foreground max-w-md mx-auto">
+                    Comprehensive payment analytics and management tools at your
+                    fingertips
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedGroup>
+      </div>
+
+      {/* Trusted Companies Section */}
+      <section className="bg-background pb-16 pt-16 md:pb-32">
+        <div className="group relative m-auto max-w-5xl px-6">
+          <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
+            <a href="#about" className="block text-sm duration-150 hover:opacity-75">
+              <span>Meet Our Partners</span>
+              <ChevronRight className="ml-1 inline-block size-3" />
+            </a>
+          </div>
+          <div className="group-hover:blur-xs mx-auto mt-12 grid max-w-2xl grid-cols-4 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 sm:gap-x-16 sm:gap-y-14">
+            <div className="flex">
+              <img
+                className="mx-auto h-5 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/nvidia.svg"
+                alt="Partner Logo"
+                height="20"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-4 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/column.svg"
+                alt="Partner Logo"
+                height="16"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-4 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/github.svg"
+                alt="Partner Logo"
+                height="16"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-5 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/nike.svg"
+                alt="Partner Logo"
+                height="20"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-5 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
+                alt="Partner Logo"
+                height="20"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-4 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/laravel.svg"
+                alt="Partner Logo"
+                height="16"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-7 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/lilly.svg"
+                alt="Partner Logo"
+                height="28"
+                width="auto"
+              />
+            </div>
+            <div className="flex">
+              <img
+                className="mx-auto h-6 w-fit dark:invert opacity-60"
+                src="https://html.tailus.io/blocks/customers/openai.svg"
+                alt="Partner Logo"
+                height="24"
+                width="auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }

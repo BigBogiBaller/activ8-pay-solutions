@@ -35,7 +35,7 @@ export function Header() {
         >
           <div className="relative flex items-center justify-between py-3 lg:py-4">
             <a href="#home" className="flex items-center">
-              <img src={logo} alt="Activ8Pay" className="h-10" />
+              <img src={logo} alt="Activ8Pay" className="h-14 md:h-16" />
             </a>
 
             <button
