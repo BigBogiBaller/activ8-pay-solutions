@@ -1,27 +1,50 @@
 import { CreditCard, Building2, TrendingUp, Shield } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { AnimatedGroup } from '@/components/ui/animated-group';
+import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
 
 const services = [
   {
-    icon: CreditCard,
-    title: 'Alternative Payment Methods',
+    Icon: CreditCard,
+    name: 'Alternative Payment Methods',
     description: 'Support for diverse payment options including digital wallets, bank transfers, and local payment methods to maximize conversion rates.',
+    href: '#contact',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+    ),
   },
   {
-    icon: Building2,
-    title: 'Corporate Banking Services',
+    Icon: Building2,
+    name: 'Corporate Banking Services',
     description: 'Comprehensive banking solutions tailored for businesses, including account management, transaction processing, and treasury services.',
+    href: '#contact',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-1',
+    background: (
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+    ),
   },
   {
-    icon: TrendingUp,
-    title: 'Payment Consulting',
+    Icon: TrendingUp,
+    name: 'Payment Consulting',
     description: 'Expert guidance on payment strategy, optimization, and implementation to help your business scale efficiently.',
+    href: '#contact',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-1',
+    background: (
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+    ),
   },
   {
-    icon: Shield,
-    title: 'Compliance & Security',
+    Icon: Shield,
+    name: 'Compliance & Security',
     description: 'Industry-leading security measures and regulatory compliance support to protect your business and customers.',
+    href: '#contact',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+    ),
   },
 ];
 
@@ -36,21 +59,13 @@ export function Services() {
           </p>
         </div>
         
-        <AnimatedGroup preset="scale" className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {services.map((service, index) => (
-            <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <service.icon className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">{service.description}</CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </AnimatedGroup>
+        <div className="max-w-7xl mx-auto">
+          <BentoGrid>
+            {services.map((service, idx) => (
+              <BentoCard key={idx} {...service} />
+            ))}
+          </BentoGrid>
+        </div>
       </div>
     </section>
   );

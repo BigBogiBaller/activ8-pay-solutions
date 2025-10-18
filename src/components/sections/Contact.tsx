@@ -1,122 +1,111 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'contact@activ8pay.com',
-    href: 'mailto:contact@activ8pay.com',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'Global Operations',
-    href: '#',
-  },
-];
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 export function Contact() {
+  const contactMethods = [
+    {
+      icon: <Mail className="w-6 h-6" />,
+      contact: "Charles@activpay.com"
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      contact: "+43 676 5024467"
+    },
+    {
+      icon: <MapPin className="w-6 h-6" />,
+      contact: "Vienna, Austria"
+    },
+  ];
+
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your payment infrastructure? Let's talk.
-          </p>
-        </div>
-        
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div>
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            <div className="space-y-6 mb-8">
-              {contactInfo.map((info, index) => (
-                <Card key={index}>
-                  <CardContent className="flex items-center gap-4 p-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <info.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">{info.label}</p>
-                      <a
-                        href={info.href}
-                        className="text-lg font-medium hover:text-primary transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            <div className="prose prose-sm text-muted-foreground">
-              <p>
-                Our team is available Monday through Friday, 9:00 AM to 6:00 PM EST. 
-                For urgent matters, our 24/7 support line is always available for existing clients.
+        <div className="max-w-screen-xl mx-auto">
+          <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
+            <div className="max-w-lg space-y-3">
+              <h3 className="text-primary font-semibold">
+                Contact
+              </h3>
+              <p className="text-foreground text-3xl font-semibold sm:text-4xl">
+                Let us know how we can help
               </p>
+              <p className="text-muted-foreground">
+                We're here to help and answer any question you might have. We look forward to hearing from you! Please fill out the form, or use the contact information below.
+              </p>
+              <div>
+                <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
+                  {contactMethods.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-x-3">
+                      <div className="flex-none text-muted-foreground">
+                        {item.icon}
+                      </div>
+                      <p className="text-foreground">{item.contact}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-          
-          <Card>
-            <CardContent className="p-6">
-              <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="firstName" className="text-sm font-medium">
-                      First Name
-                    </label>
-                    <Input id="firstName" placeholder="John" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="lastName" className="text-sm font-medium">
-                      Last Name
-                    </label>
-                    <Input id="lastName" placeholder="Doe" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <Input id="email" type="email" placeholder="john@company.com" />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="company" className="text-sm font-medium">
-                    Company
-                  </label>
-                  <Input id="company" placeholder="Your Company" />
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell us about your payment needs..."
-                    rows={5}
+            <div className="flex-1 mt-12 sm:max-w-lg lg:max-w-md">
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="space-y-5"
+              >
+                <div>
+                  <Label htmlFor="name" className="font-medium">
+                    Full name
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    required
+                    className="w-full mt-2"
                   />
                 </div>
-                
-                <Button type="submit" className="w-full" size="lg">
-                  Send Message
+                <div>
+                  <Label htmlFor="email" className="font-medium">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    className="w-full mt-2"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="company" className="font-medium">
+                    Company
+                  </Label>
+                  <Input
+                    id="company"
+                    type="text"
+                    required
+                    className="w-full mt-2"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="message" className="font-medium">
+                    Message
+                  </Label>
+                  <Textarea
+                    id="message"
+                    required
+                    className="w-full mt-2 h-36 resize-none"
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full"
+                  size="lg"
+                >
+                  Submit
                 </Button>
               </form>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>
