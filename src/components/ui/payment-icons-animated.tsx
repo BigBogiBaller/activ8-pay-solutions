@@ -58,7 +58,7 @@ const Skeleton = () => {
   useEffect(() => {
     animate(sequence, {
       // @ts-ignore
-      repeat: Infinity,
+      repeat: Number.POSITIVE_INFINITY,
       repeatDelay: 1,
     })
   }, [])
@@ -103,7 +103,7 @@ const Skeleton = () => {
         </Container>
       </div>
 
-      <div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-primary to-transparent animate-pulse">
+      <div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
         <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
           <Sparkles />
         </div>
@@ -129,7 +129,7 @@ const Sparkles = () => {
           }}
           transition={{
             duration: random() * 2 + 4,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
           style={{
@@ -141,7 +141,7 @@ const Sparkles = () => {
             borderRadius: "50%",
             zIndex: 1,
           }}
-          className="inline-block bg-foreground"
+          className="inline-block bg-black dark:bg-white"
         ></motion.span>
       ))}
     </div>
@@ -158,7 +158,7 @@ const Container = ({
   return (
     <div
       className={cn(
-        `h-16 w-16 rounded-full flex items-center justify-center bg-background/5
+        `h-16 w-16 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)]
     shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)]
     `,
         className,
