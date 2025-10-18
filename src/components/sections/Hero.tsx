@@ -3,15 +3,24 @@ import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { FloatingIcons } from './FloatingIcons';
 import {
-  IconCreditCard,
-  IconWallet,
-  IconBank,
-  IconShield,
-  IconChart,
-  IconGlobe,
-  IconLock,
-  IconCurrency,
-} from '@/components/icons/PaymentIcons';
+  IconGoogle,
+  IconApple,
+  IconMicrosoft,
+  IconFigma,
+  IconGitHub,
+  IconSlack,
+  IconVercel,
+  IconStripe,
+  IconDiscord,
+  IconX,
+  IconNotion,
+  IconSpotify,
+  IconDropbox,
+  IconTwitch,
+  IconLinear,
+  IconYouTube,
+} from '@/components/icons/FloatingCompanyIcons';
+import dashboardPreview from '@/assets/dashboard-preview.png';
 
 const transitionVariants = {
   item: {
@@ -40,14 +49,22 @@ interface IconData {
 }
 
 const floatingIcons: IconData[] = [
-  { id: 1, icon: IconCreditCard, className: 'top-[15%] left-[10%]' },
-  { id: 2, icon: IconWallet, className: 'top-[25%] right-[15%]' },
-  { id: 3, icon: IconBank, className: 'top-[60%] left-[8%]' },
-  { id: 4, icon: IconShield, className: 'bottom-[20%] right-[10%]' },
-  { id: 5, icon: IconChart, className: 'top-[40%] right-[8%]' },
-  { id: 6, icon: IconGlobe, className: 'top-[70%] left-[20%]' },
-  { id: 7, icon: IconLock, className: 'top-[35%] left-[15%]' },
-  { id: 8, icon: IconCurrency, className: 'bottom-[30%] right-[20%]' },
+  { id: 1, icon: IconGoogle, className: 'top-[10%] left-[10%]' },
+  { id: 2, icon: IconApple, className: 'top-[20%] right-[8%]' },
+  { id: 3, icon: IconMicrosoft, className: 'top-[80%] left-[10%]' },
+  { id: 4, icon: IconFigma, className: 'bottom-[10%] right-[10%]' },
+  { id: 5, icon: IconGitHub, className: 'top-[5%] left-[30%]' },
+  { id: 6, icon: IconSlack, className: 'top-[5%] right-[30%]' },
+  { id: 7, icon: IconVercel, className: 'bottom-[8%] left-[25%]' },
+  { id: 8, icon: IconStripe, className: 'top-[40%] left-[15%]' },
+  { id: 9, icon: IconDiscord, className: 'top-[75%] right-[25%]' },
+  { id: 10, icon: IconX, className: 'top-[90%] left-[70%]' },
+  { id: 11, icon: IconNotion, className: 'top-[50%] right-[5%]' },
+  { id: 12, icon: IconSpotify, className: 'top-[55%] left-[5%]' },
+  { id: 13, icon: IconDropbox, className: 'top-[5%] left-[55%]' },
+  { id: 14, icon: IconTwitch, className: 'bottom-[5%] right-[45%]' },
+  { id: 15, icon: IconLinear, className: 'top-[25%] right-[20%]' },
+  { id: 16, icon: IconYouTube, className: 'top-[60%] left-[30%]' },
 ];
 
 export function Hero() {
@@ -161,17 +178,11 @@ export function Hero() {
               className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
             />
             <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1 ring-background bg-gradient-to-br from-primary/5 to-background">
-              <div className="aspect-video relative rounded-2xl border border-border/25 bg-gradient-to-br from-primary/10 to-background flex items-center justify-center">
-                <div className="text-center p-8">
-                  <h3 className="text-3xl font-bold mb-4">
-                    Payment Dashboard
-                  </h3>
-                  <p className="text-muted-foreground max-w-md mx-auto">
-                    Comprehensive payment analytics and management tools at your
-                    fingertips
-                  </p>
-                </div>
-              </div>
+              <img
+                src={dashboardPreview}
+                alt="Activ8Pay Payment Dashboard"
+                className="aspect-video relative rounded-2xl border border-border/25 w-full h-auto object-cover"
+              />
             </div>
           </div>
         </AnimatedGroup>
