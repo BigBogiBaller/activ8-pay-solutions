@@ -1,5 +1,5 @@
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { StackedCircularFooter } from '@/components/ui/stacked-circular-footer';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Founder } from '@/components/sections/Founder';
@@ -19,7 +19,7 @@ const Index = () => {
         <FAQ />
         <Contact />
       </main>
-      <Footer />
+      <StackedCircularFooter />
     </div>
   );
 };
