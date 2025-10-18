@@ -8,32 +8,32 @@ import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 export default function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Track issues effectively",
+      title: "Streamlined Payment Processing",
       description:
-        "Track and manage your project issues with ease using our intuitive interface.",
+        "Process transactions efficiently with our intuitive payment infrastructure that handles multiple payment methods seamlessly.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Capture pictures with AI",
+      title: "Enterprise-Grade Security",
       description:
-        "Capture stunning photos effortlessly using our advanced AI technology.",
+        "Bank-level encryption and compliance standards protect every transaction with advanced fraud detection and prevention.",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
-      title: "Watch our AI on YouTube",
+      title: "Expert Consulting Services",
       description:
-        "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+        "Our experienced team provides strategic guidance to optimize your payment infrastructure and maximize efficiency.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
     },
     {
-      title: "Deploy in seconds",
+      title: "Global Payment Coverage",
       description:
-        "With our blazing fast, state of the art, cutting edge, we are so back cloud servies (read AWS) - you can deploy your model in seconds.",
+        "Accept payments worldwide with support for multiple currencies, alternative payment methods, and local payment providers across all major markets.",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -42,12 +42,11 @@ export default function FeaturesSectionDemo() {
     <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
       <div className="px-8">
         <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Packed with thousands of features
+          Why Choose Activ8Pay
         </h4>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          From Image generation to video generation, Everything AI has APIs for
-          literally everything. It can even create this website copy for you.
+          From traditional payment methods to cutting-edge alternative payment solutions, we provide comprehensive services that empower your business to thrive in the digital economy.
         </p>
       </div>
 
