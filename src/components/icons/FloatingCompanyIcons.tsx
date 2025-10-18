@@ -33,6 +33,15 @@ export const IconApple = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+export const IconMicrosoft = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11.4 2H2v9.4h9.4V2Z" fill="#F25022"/>
+    <path d="M22 2h-9.4v9.4H22V2Z" fill="#7FBA00"/>
+    <path d="M11.4 12.6H2V22h9.4V12.6Z" fill="#00A4EF"/>
+    <path d="M22 12.6h-9.4V22H22V12.6Z" fill="#FFB900"/>
+  </svg>
+);
+
 export const IconFigma = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2z" fill="#2C2C2C" />
