@@ -50,12 +50,9 @@ export function Header() {
       >
         <a href="#home" className="flex items-center">
           <img 
-            src={scrolled ? icon : logo} 
+            src={logo} 
             alt="Activ8Pay" 
-            className={cn(
-              "transition-all duration-300",
-              scrolled ? "h-16 md:h-20" : "h-20 md:h-24"
-            )}
+            className="h-10 w-auto transition-all duration-300"
           />
         </a>
 
