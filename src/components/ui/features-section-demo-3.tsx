@@ -14,14 +14,21 @@ export default function FeaturesSectionDemo() {
         "Process transactions efficiently with our intuitive payment infrastructure that handles multiple payment methods seamlessly.",
       skeleton: <SkeletonOne />,
       className:
-        "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
+        "col-span-1 lg:col-span-4 lg:row-span-2 border-b lg:border-r dark:border-neutral-800",
     },
     {
       title: "Enterprise-Grade Security",
       description:
         "Bank-level encryption and compliance standards protect every transaction with advanced fraud detection and prevention.",
       skeleton: <SkeletonTwo />,
-      className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
+      className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 lg:border-r",
+    },
+    {
+      title: "24/7 Support",
+      description:
+        "Round-the-clock support from our dedicated team to ensure your payment systems run smoothly without interruption.",
+      skeleton: <SkeletonTwo />,
+      className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 lg:border-r",
     },
     {
       title: "Expert Consulting Services",
@@ -29,7 +36,7 @@ export default function FeaturesSectionDemo() {
         "Our experienced team provides strategic guidance to optimize your payment infrastructure and maximize efficiency.",
       skeleton: <SkeletonThree />,
       className:
-        "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
+        "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
     },
     {
       title: "Global Payment Coverage",
