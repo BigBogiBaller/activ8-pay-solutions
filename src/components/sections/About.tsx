@@ -1,12 +1,6 @@
-import { CheckCircle2 } from 'lucide-react';
 import { AnimatedGroup } from '@/components/ui/animated-group';
-
-const features = [
-  'Over 10 years of industry expertise',
-  'Trusted by leading enterprises worldwide',
-  'Cutting-edge payment technology',
-  '24/7 dedicated customer support',
-];
+import FeaturesSectionDemo from '@/components/ui/features-section-demo-3';
+import activ8payIcon from '@/assets/activ8pay-icon.png';
 
 export function About() {
   return (
@@ -14,7 +8,9 @@ export function About() {
       <div className="container mx-auto px-6">
         <AnimatedGroup preset="blur-slide" className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">About Activ8Pay</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
+              About <img src={activ8payIcon} alt="Activ8Pay" className="h-12 w-auto inline-block" />
+            </h2>
             <p className="text-xl text-muted-foreground">
               Your trusted partner in payment solutions
             </p>
@@ -34,19 +30,9 @@ export function About() {
               tools and insights needed to succeed in today's digital economy.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-4 mt-12">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 p-4 rounded-lg bg-card border"
-              >
-                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-card-foreground">{feature}</span>
-              </div>
-            ))}
-          </div>
         </AnimatedGroup>
+        
+        <FeaturesSectionDemo />
       </div>
     </section>
   );
