@@ -65,7 +65,7 @@ const Skeleton = () => {
   
   return (
     <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
-      <div className="flex flex-row shrink-0 justify-center items-center gap-2">
+      <div className="flex flex-row shrink-0 justify-center items-center gap-2 relative z-50">
         <Container className="h-8 w-8 circle-1">
           <img
             src={applePay}
@@ -103,7 +103,7 @@ const Skeleton = () => {
         </Container>
       </div>
 
-      <div className="h-40 w-px absolute top-20 m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+      <div className="h-40 w-px absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent">
         <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
           <Sparkles />
         </div>

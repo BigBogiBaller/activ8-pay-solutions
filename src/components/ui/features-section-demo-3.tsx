@@ -2,9 +2,9 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { PaymentIconsAnimated } from "@/components/ui/payment-icons-animated";
+import { ProfileCard } from "@/components/ui/profile-card";
+import dashboardSidebar from "@/assets/dashboard-sidebar.png";
 
 export default function FeaturesSectionDemo() {
   const features = [
@@ -108,10 +108,8 @@ export const SkeletonOne = () => {
       <div className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           <img
-            src="/linear.webp"
-            alt="header"
-            width={800}
-            height={800}
+            src={dashboardSidebar}
+            alt="Activ8Pay dashboard interface"
             className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
           />
         </div>
@@ -125,24 +123,9 @@ export const SkeletonOne = () => {
 
 export const SkeletonThree = () => {
   return (
-    <a
-      href="https://www.youtube.com/watch?v=RPa3_AD1_Vs"
-      target="__blank"
-      className="relative flex gap-10  h-full group/image"
-    >
-      <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
-          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
-          <img
-            src="https://assets.aceternity.com/fireship.jpg"
-            alt="header"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
-          />
-        </div>
-      </div>
-    </a>
+    <div className="relative flex gap-10 h-full items-center justify-center p-8">
+      <ProfileCard />
+    </div>
   );
 };
 
