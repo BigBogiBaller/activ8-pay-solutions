@@ -4,6 +4,7 @@ import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 import { PaymentIconsAnimated } from "@/components/ui/payment-icons-animated";
 import { ProfileCard } from "@/components/ui/profile-card";
+import { Visual247 } from "@/components/ui/visual-247";
 import dashboardSidebar from "@/assets/dashboard-sidebar.png";
 
 export default function FeaturesSectionDemo() {
@@ -27,7 +28,7 @@ export default function FeaturesSectionDemo() {
       title: "24/7 Support",
       description:
         "Round-the-clock support from our dedicated team to ensure your payment systems run smoothly without interruption.",
-      skeleton: <SkeletonTwo />,
+      skeleton: <SkeletonSupport />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 lg:border-r",
     },
     {
@@ -138,8 +139,16 @@ export const SkeletonThree = () => {
 
 export const SkeletonTwo = () => {
   return (
-    <div className="relative flex flex-col items-center justify-start -mt-4 h-full overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center h-full overflow-hidden">
       <PaymentIconsAnimated />
+    </div>
+  );
+};
+
+export const SkeletonSupport = () => {
+  return (
+    <div className="group/animated-card relative flex flex-col items-center justify-center h-full overflow-hidden">
+      <Visual247 mainColor="#3b82f6" secondaryColor="#8b5cf6" />
     </div>
   );
 };
