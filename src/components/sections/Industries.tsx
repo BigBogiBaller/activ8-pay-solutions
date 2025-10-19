@@ -1,13 +1,13 @@
-import { Building2, ShoppingCart, Briefcase, Plane, GraduationCap, Heart } from "lucide-react";
+import { Building2, ShoppingCart, Briefcase, Code, Home, CreditCard } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
 const industriesData = [
   {
     id: 1,
-    title: "Retail",
-    date: "E-Commerce",
-    content: "Seamless payment solutions for online and brick-and-mortar retail businesses with multiple payment options.",
-    category: "Retail",
+    title: "E-Commerce",
+    date: "Online Retail",
+    content: "Comprehensive payment solutions for online stores, marketplaces, and digital retailers with global reach.",
+    category: "E-Commerce",
     icon: ShoppingCart,
     relatedIds: [2, 6],
     status: "completed" as const,
@@ -15,14 +15,14 @@ const industriesData = [
   },
   {
     id: 2,
-    title: "Hospitality",
-    date: "Hotels & Dining",
-    content: "Integrated payment systems for hotels, restaurants, and entertainment venues with contactless options.",
-    category: "Hospitality",
-    icon: Building2,
+    title: "SaaS & Software",
+    date: "Subscription Services",
+    content: "Recurring billing and subscription management for software companies and digital service providers.",
+    category: "SaaS",
+    icon: Code,
     relatedIds: [1, 3],
     status: "completed" as const,
-    energy: 90,
+    energy: 92,
   },
   {
     id: 3,
@@ -32,57 +32,54 @@ const industriesData = [
     category: "Professional",
     icon: Briefcase,
     relatedIds: [2, 4],
-    status: "in-progress" as const,
-    energy: 85,
-  },
-  {
-    id: 4,
-    title: "Travel & Tourism",
-    date: "Global Payments",
-    content: "Multi-currency payment support for travel agencies, tour operators, and booking platforms.",
-    category: "Travel",
-    icon: Plane,
-    relatedIds: [3, 5],
     status: "completed" as const,
     energy: 88,
   },
   {
+    id: 4,
+    title: "Hospitality",
+    date: "Hotels & Restaurants",
+    content: "Integrated payment systems for hotels, restaurants, and entertainment venues with contactless options.",
+    category: "Hospitality",
+    icon: Building2,
+    relatedIds: [3, 5],
+    status: "completed" as const,
+    energy: 90,
+  },
+  {
     id: 5,
-    title: "Education",
-    date: "EdTech",
-    content: "Secure payment solutions for educational institutions, online courses, and learning platforms.",
-    category: "Education",
-    icon: GraduationCap,
+    title: "Real Estate",
+    date: "Property Management",
+    content: "Secure payment processing for property management, real estate transactions, and rental payments.",
+    category: "Real Estate",
+    icon: Home,
     relatedIds: [4, 6],
-    status: "in-progress" as const,
-    energy: 80,
+    status: "completed" as const,
+    energy: 85,
   },
   {
     id: 6,
-    title: "Healthcare",
-    date: "Medical Services",
-    content: "HIPAA-compliant payment processing for medical practices, telehealth, and healthcare providers.",
-    category: "Healthcare",
-    icon: Heart,
+    title: "Financial Services",
+    date: "Fintech",
+    content: "Advanced payment infrastructure for fintech companies, digital wallets, and financial platforms.",
+    category: "Fintech",
+    icon: CreditCard,
     relatedIds: [5, 1],
     status: "completed" as const,
-    energy: 92,
+    energy: 94,
   },
 ];
 
 export function Industries() {
   return (
-    <section id="industries" className="relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-black to-background pointer-events-none" />
-      <div className="relative">
-        <div className="container mx-auto px-4 md:px-6 py-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Industries We Serve</h2>
-          <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
-            Tailored payment solutions for diverse sectors
-          </p>
-        </div>
-        <RadialOrbitalTimeline timelineData={industriesData} />
+    <section id="industries" className="py-20 bg-background">
+      <div className="container mx-auto px-4 md:px-6 text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Industries We Serve</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Tailored payment solutions for diverse sectors
+        </p>
       </div>
+      <RadialOrbitalTimeline timelineData={industriesData} />
     </section>
   );
 }
