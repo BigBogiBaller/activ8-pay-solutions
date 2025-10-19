@@ -139,7 +139,7 @@ export const SkeletonThree = () => {
 
 export const SkeletonTwo = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center h-full overflow-hidden -mt-8">
+    <div className="relative flex flex-col items-center justify-center h-full overflow-hidden -mt-20">
       <PaymentIconsAnimated />
     </div>
   );

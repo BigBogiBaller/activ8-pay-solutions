@@ -42,7 +42,7 @@ export function Header() {
     >
       <nav
         className={cn(
-          'flex h-16 w-full items-center justify-between px-4 md:h-14 md:transition-all md:ease-out',
+          'flex h-16 w-full items-center justify-between px-4 md:h-14 md:transition-all md:ease-out md:grid md:grid-cols-3',
           {
             'md:px-2': scrolled,
           }
@@ -56,7 +56,7 @@ export function Header() {
           />
         </a>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 md:flex md:justify-center">
           {menuItems.map((item, i) => (
             <a
               key={i}
@@ -66,6 +66,9 @@ export function Header() {
               {item.name}
             </a>
           ))}
+        </div>
+
+        <div className="hidden md:flex md:justify-end">
           <Button size="sm" asChild>
             <a href="#contact">Get Started</a>
           </Button>
