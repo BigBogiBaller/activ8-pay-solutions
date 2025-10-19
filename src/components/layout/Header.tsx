@@ -66,8 +66,9 @@ export function Header() {
               {item.name}
             </a>
           ))}
-          <Button variant="outline" size="sm">Sign In</Button>
-          <Button size="sm">Get Started</Button>
+          <Button size="sm" asChild>
+            <a href="#contact">Get Started</a>
+          </Button>
         </div>
 
         <Button
@@ -106,10 +107,9 @@ export function Header() {
             ))}
           </div>
           <div className="flex flex-col gap-2">
-            <Button variant="outline" className="w-full">
-              Sign In
+            <Button className="w-full" asChild>
+              <a href="#contact" onClick={() => setOpen(false)}>Get Started</a>
             </Button>
-            <Button className="w-full">Get Started</Button>
           </div>
         </div>
       </div>
