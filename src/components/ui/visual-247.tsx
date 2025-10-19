@@ -126,7 +126,12 @@ const ClockLayer: React.FC<ClockLayerProps> = ({ hovered, color }) => {
   }, [hovered]);
 
   return (
-    <div className="ease-[cubic-bezier(0.6, 0.6, 0, 1)] absolute top-0 left-0 z-[7] flex h-[360px] w-full transform items-center justify-center transition-transform duration-500 group-hover/animated-card:-translate-y-[90px] group-hover/animated-card:scale-110">
+    <div 
+      className="ease-[cubic-bezier(0.6, 0.6, 0, 1)] absolute top-0 left-0 z-[7] flex h-[360px] w-full transform items-center justify-center transition-transform duration-500"
+      style={{
+        transform: hovered ? 'translateY(-90px) scale(1.1)' : 'translateY(0) scale(1)',
+      }}
+    >
       <div className="relative flex h-[120px] w-[120px] items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative h-24 w-24 rounded-full border-4 border-current opacity-20" style={{ color }} />
@@ -179,7 +184,12 @@ const FloatingBadges: React.FC<FloatingBadgesProps> = ({ hovered, color, seconda
   ];
 
   return (
-    <div className="ease-[cubic-bezier(0.6, 0.6, 0, 1)] absolute inset-0 z-[8] flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover/animated-card:opacity-100">
+    <div 
+      className="ease-[cubic-bezier(0.6, 0.6, 0, 1)] absolute inset-0 z-[8] flex items-center justify-center transition-opacity duration-500"
+      style={{
+        opacity: hovered ? 1 : 0,
+      }}
+    >
       {badges.map((badge) => (
         <div
           key={badge.id}
