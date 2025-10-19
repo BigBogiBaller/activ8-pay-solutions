@@ -118,7 +118,7 @@ export const SkeletonOne = () => {
           <img
             src={dashboardSidebar}
             alt="Activ8Pay dashboard interface"
-            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
+            className="h-full w-full aspect-square object-cover object-left-top rounded-sm scale-90"
           />
         </div>
       </div>
@@ -131,7 +131,7 @@ export const SkeletonOne = () => {
 
 export const SkeletonThree = () => {
   return (
-    <div className="relative flex gap-10 h-full items-center justify-center p-8">
+    <div className="relative flex gap-10 h-full items-center justify-center p-8 -mt-8">
       <ProfileCard />
     </div>
   );
@@ -139,7 +139,7 @@ export const SkeletonThree = () => {
 
 export const SkeletonTwo = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center h-full overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center h-full overflow-hidden -mt-8">
       <PaymentIconsAnimated />
     </div>
   );
@@ -147,8 +147,8 @@ export const SkeletonTwo = () => {
 
 export const SkeletonSupport = () => {
   return (
-    <div className="group/animated-card relative flex flex-col items-center justify-center h-full overflow-hidden">
-      <Visual247 mainColor="#3b82f6" secondaryColor="#8b5cf6" />
+    <div className="group/animated-card relative flex flex-col items-center justify-center h-full overflow-hidden -mt-12">
+      <Visual247 mainColor="#3b82f6" secondaryColor="#8b5cf6" autoStart />
     </div>
   );
 };

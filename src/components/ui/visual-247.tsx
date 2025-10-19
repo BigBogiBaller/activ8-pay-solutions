@@ -1,28 +1,56 @@
 "use client";
-
-import * as React from "react";
-import { useEffect, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Clock } from "lucide-react";
 
 interface Visual247Props {
   mainColor?: string;
   secondaryColor?: string;
   gridColor?: string;
+  autoStart?: boolean;
 }
 
 export function Visual247({
   mainColor = "#3b82f6",
   secondaryColor = "#8b5cf6",
   gridColor = "#80808015",
+  autoStart = false,
 }: Visual247Props) {
   const [hovered, setHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (autoStart && containerRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+              setHovered(true);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      const currentRef = containerRef.current;
+      observer.observe(currentRef);
+
+      return () => {
+        if (currentRef) {
+          observer.unobserve(currentRef);
+        }
+      };
+    }
+  }, [autoStart]);
 
   return (
     <>
       <div
+        ref={containerRef}
         className="absolute inset-0 z-20"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter={() => !autoStart && setHovered(true)}
+        onMouseLeave={() => !autoStart && setHovered(false)}
         style={
           {
             "--color": mainColor,
