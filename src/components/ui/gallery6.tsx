@@ -16,7 +16,8 @@ interface GalleryItem {
   title: string;
   summary: string;
   url: string;
-  image: string;
+  image?: string;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 interface Gallery6Props {
@@ -150,14 +151,18 @@ const Gallery6 = ({
                   className="group flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex aspect-[3/2] overflow-clip rounded-xl">
-                      <div className="flex-1">
-                        <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="h-full w-full object-cover object-center"
-                          />
+                    <div className="flex aspect-[3/2] overflow-clip rounded-xl bg-primary/5 items-center justify-center">
+                      <div className="flex-1 flex items-center justify-center">
+                        <div className="relative transition duration-300 group-hover:scale-110">
+                          {item.icon ? (
+                            <item.icon className="w-32 h-32 text-primary" />
+                          ) : item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="h-full w-full object-cover object-center"
+                            />
+                          ) : null}
                         </div>
                       </div>
                     </div>
