@@ -32,7 +32,7 @@ export function Header({ className }: { className?: string }) {
 
   return (
     <header
-      className="sticky top-0 z-50 mx-auto w-full md:transition-all md:ease-out"
+      className="sticky top-0 z-50 mx-auto w-full md:transition-all md:ease-out bg-[#0A1128]"
     >
       <nav
         className={cn(
@@ -47,7 +47,7 @@ export function Header({ className }: { className?: string }) {
           <img 
             src={logo} 
             alt="Activ8Pay" 
-            className="h-12 md:h-14 w-auto transition-all duration-300"
+            className="h-16 md:h-20 w-auto transition-all duration-300"
           />
         </a>
 

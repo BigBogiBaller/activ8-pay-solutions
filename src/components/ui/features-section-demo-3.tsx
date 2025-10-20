@@ -5,11 +5,11 @@ import { useEffect, useRef } from "react";
 import { PaymentIconsAnimated } from "@/components/ui/payment-icons-animated";
 import { ProfileNotificationAnimation } from "@/components/ui/profile-notification-animation";
 import { Visual247 } from "@/components/ui/visual-247";
-import dashboardSidebar from "@/assets/dashboard-sidebar.png";
+import dashboardSidebar from "@/assets/dashboard-sidebar-new.png";
 export default function FeaturesSectionDemo() {
   const features = [{
-    title: "Streamlined Payment Processing",
-    description: "Process transactions efficiently with our intuitive payment infrastructure that handles multiple payment methods seamlessly.",
+    title: "",
+    description: "",
     skeleton: <SkeletonOne className="bg-[#0a1128] rounded-lg" />,
     className: "col-span-1 lg:col-span-4 lg:row-span-2 border-b lg:border-r dark:border-neutral-800"
   }, {
@@ -86,14 +86,9 @@ const FeatureDescription = ({
 };
 export const SkeletonOne = ({ className }: { className?: string }) => {
   return <div className={cn("relative flex py-8 px-2 gap-10 h-full", className)}>
-      <div className="w-full p-5 mx-auto shadow-2xl group h-full bg-[#0a1128]">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
-          <img src={dashboardSidebar} alt="Activ8Pay dashboard interface" className="h-full w-full aspect-square object-cover object-left-top rounded-sm scale-90" />
-        </div>
+      <div className="w-full mx-auto h-full bg-[#0a1128] flex items-center justify-center">
+        <img src={dashboardSidebar} alt="Activ8Pay dashboard interface" className="h-full w-auto object-contain" />
       </div>
-
-      <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
-      <div className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
     </div>;
 };
 export const SkeletonThree = () => {
