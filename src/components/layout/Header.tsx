@@ -3,8 +3,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/hooks/use-scroll';
-import logo from '@/assets/activ8pay-logo.png';
-import icon from '@/assets/activ8pay-icon.png';
+import logo from '@/assets/activ8pay-logo-main.png';
 
 const menuItems = [
   { name: 'Home', href: '#home' },

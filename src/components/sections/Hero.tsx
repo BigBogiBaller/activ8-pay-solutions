@@ -4,15 +4,14 @@ import { AnimatedGroup } from "@/components/ui/animated-group";
 import { FloatingIcons } from "./FloatingIcons";
 import { Logos3 } from "@/components/ui/logos3";
 import dashboardPreview from "@/assets/dashboard-preview.png";
-import paypalLogo from "@/assets/paypal-logo.png";
-import bitcoinLogo from "@/assets/bitcoin-logo.png";
+import jcbLogo from "@/assets/jcb-logo.png";
 import mastercardLogo from "@/assets/mastercard-logo.png";
 import visaLogo from "@/assets/visa-logo.png";
 import googlepayLogo from "@/assets/googlepay-logo.png";
 import applepayLogo from "@/assets/applepay-logo.png";
 import amexLogo from "@/assets/amex-logo.png";
-import xrpLogo from "@/assets/xrp-logo.png";
-import ethereumLogo from "@/assets/ethereum-logo.png";
+import sepaLogo from "@/assets/sepa-logo.png";
+import cbLogo from "@/assets/cb-logo.png";
 
 const transitionVariants = {
   item: {
@@ -42,27 +41,25 @@ interface IconData {
 }
 
 const floatingIcons: IconData[] = [
-  { id: 1, image: paypalLogo, className: "top-[10%] left-[10%]", alt: "PayPal" },
-  { id: 2, image: bitcoinLogo, className: "top-[20%] right-[8%]", alt: "Bitcoin" },
+  { id: 1, image: cbLogo, className: "top-[10%] left-[10%]", alt: "Cartes Bancaires" },
+  { id: 2, image: sepaLogo, className: "top-[20%] right-[8%]", alt: "SEPA" },
   { id: 3, image: mastercardLogo, className: "top-[5%] left-[30%]", alt: "Mastercard" },
   { id: 4, image: visaLogo, className: "top-[5%] right-[30%]", alt: "Visa" },
   { id: 5, image: googlepayLogo, className: "top-[35%] left-[8%]", alt: "Google Pay" },
   { id: 6, image: applepayLogo, className: "top-[40%] left-[15%]", alt: "Apple Pay" },
   { id: 7, image: amexLogo, className: "top-[15%] right-[8%]", alt: "American Express" },
-  { id: 8, image: xrpLogo, className: "top-[30%] right-[12%]", alt: "XRP" },
-  { id: 9, image: ethereumLogo, className: "top-[22%] left-[9%]", alt: "Ethereum" },
+  { id: 8, image: jcbLogo, className: "top-[30%] right-[12%]", alt: "JCB" },
 ];
 
 const paymentLogos = [
-  { id: "logo-1", description: "PayPal", image: paypalLogo, className: "h-8 w-auto" },
-  { id: "logo-2", description: "Bitcoin", image: bitcoinLogo, className: "h-8 w-auto" },
+  { id: "logo-1", description: "JCB", image: jcbLogo, className: "h-8 w-auto" },
+  { id: "logo-2", description: "SEPA", image: sepaLogo, className: "h-8 w-auto" },
   { id: "logo-3", description: "Mastercard", image: mastercardLogo, className: "h-8 w-auto" },
   { id: "logo-4", description: "Visa", image: visaLogo, className: "h-8 w-auto" },
   { id: "logo-5", description: "Google Pay", image: googlepayLogo, className: "h-8 w-auto" },
   { id: "logo-6", description: "Apple Pay", image: applepayLogo, className: "h-8 w-auto" },
   { id: "logo-7", description: "American Express", image: amexLogo, className: "h-8 w-auto" },
-  { id: "logo-8", description: "XRP", image: xrpLogo, className: "h-8 w-auto" },
-  { id: "logo-9", description: "Ethereum", image: ethereumLogo, className: "h-8 w-auto" },
+  { id: "logo-8", description: "Cartes Bancaires", image: cbLogo, className: "h-8 w-auto" },
 ];
 
 export function Hero() {

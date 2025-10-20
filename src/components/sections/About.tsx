@@ -1,6 +1,6 @@
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import FeaturesSectionDemo from '@/components/ui/features-section-demo-3';
-import activ8payIcon from '@/assets/activ8pay-icon.png';
+import activ8payLogo from '@/assets/activ8pay-logo-main.png';
 
 export function About() {
   return (
@@ -9,7 +9,7 @@ export function About() {
         <AnimatedGroup preset="blur-slide" className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
-              About <img src={activ8payIcon} alt="Activ8Pay" className="h-12 w-auto inline-block" />
+              About <img src={activ8payLogo} alt="Activ8Pay" className="h-16 w-auto inline-block" />
             </h2>
             <p className="text-xl text-muted-foreground">
               Your trusted partner in payment solutions

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Linkedin, Mail } from "lucide-react"
-import logo from '@/assets/activ8pay-logo-new.png'
+import logo from '@/assets/activ8pay-logo-main.png'
 
 function StackedCircularFooter() {
   return (
