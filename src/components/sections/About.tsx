@@ -10,7 +10,7 @@ export function About() {
         <AnimatedGroup preset="blur-slide" className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3 text-white">
-              About <img src={activ8payLogo} alt="Activ8Pay" className="h-16 w-auto inline-block" />
+              About <img src={activ8payLogo} alt="Activ8Pay" className="h-32 w-auto inline-block" />
             </h2>
             <p className="text-xl text-white/70">
               Your trusted partner in payment solutions
