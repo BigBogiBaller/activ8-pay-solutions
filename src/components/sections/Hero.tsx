@@ -64,7 +64,7 @@ const paymentLogos = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="hero" className="relative overflow-hidden">
       {/* Background gradients */}
       <div
         aria-hidden
