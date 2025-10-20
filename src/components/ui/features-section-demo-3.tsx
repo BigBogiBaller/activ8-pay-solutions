@@ -8,8 +8,8 @@ import { Visual247 } from "@/components/ui/visual-247";
 import dashboardSidebar from "@/assets/dashboard-sidebar-new.png";
 export default function FeaturesSectionDemo() {
   const features = [{
-    title: "",
-    description: "",
+    title: "Streamlined Payment Processing",
+    description: "Process transactions efficiently with our intuitive payment infrastructure that handles multiple payment methods seamlessly.",
     skeleton: <SkeletonOne className="bg-[#0a1128] rounded-lg" />,
     className: "col-span-1 lg:col-span-4 lg:row-span-2 border-b lg:border-r dark:border-neutral-800"
   }, {

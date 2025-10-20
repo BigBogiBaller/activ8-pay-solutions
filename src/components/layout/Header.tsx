@@ -47,7 +47,7 @@ export function Header({ className }: { className?: string }) {
           <img 
             src={logo} 
             alt="Activ8Pay" 
-            className="h-16 md:h-20 w-auto transition-all duration-300"
+            className="h-24 md:h-28 w-auto transition-all duration-300"
           />
         </a>
 
