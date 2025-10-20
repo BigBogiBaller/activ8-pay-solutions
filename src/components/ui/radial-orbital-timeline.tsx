@@ -20,10 +20,12 @@ interface TimelineItem {
 
 interface RadialOrbitalTimelineProps {
   timelineData: TimelineItem[];
+  className?: string;
 }
 
 export default function RadialOrbitalTimeline({
   timelineData,
+  className = "",
 }: RadialOrbitalTimelineProps) {
   const isMobile = useIsMobile();
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
@@ -157,7 +159,7 @@ export default function RadialOrbitalTimeline({
 
   return (
     <div
-      className="w-full min-h-[600px] md:h-screen flex flex-col items-center justify-center bg-background overflow-hidden py-8 md:py-0"
+      className={`w-full min-h-[600px] md:h-screen flex flex-col items-center justify-center bg-background overflow-hidden py-8 md:py-0 ${className}`}
       ref={containerRef}
       onClick={handleContainerClick}
     >
