@@ -8,7 +8,7 @@ import { FAQ } from '@/components/sections/FAQ';
 import { Contact } from '@/components/sections/Contact';
 const Index = () => {
   return <div className="min-h-screen bg-background">
-      <Header />
+      <Header className="bg-[#0a1128]" />
       <main>
         <Hero />
         <About />
