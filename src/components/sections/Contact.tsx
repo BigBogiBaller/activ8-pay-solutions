@@ -1,19 +1,25 @@
-import { Mail, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import telegramIcon from "@/assets/telegram-icon.png";
+import gmailIcon from "@/assets/gmail-icon.png";
+import linkedinIcon from "@/assets/linkedin-icon.png";
 
 export function Contact() {
   const contactMethods = [
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <img src={gmailIcon} alt="Email" className="w-6 h-6" />,
       contact: "solutions@activ8pay.com"
     },
     {
       icon: <img src={telegramIcon} alt="Telegram" className="w-6 h-6" />,
       contact: "@activ8pay"
+    },
+    {
+      icon: <img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6" />,
+      contact: "activ8pay"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -55,7 +61,7 @@ export function Contact() {
                 className="space-y-5"
               >
                 <div>
-                  <Label htmlFor="name" className="font-medium">
+                  <Label htmlFor="name" className="font-medium text-white">
                     Full name
                   </Label>
                   <Input
@@ -66,7 +72,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" className="font-medium">
+                  <Label htmlFor="email" className="font-medium text-white">
                     Email
                   </Label>
                   <Input
@@ -77,7 +83,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="company" className="font-medium">
+                  <Label htmlFor="company" className="font-medium text-white">
                     Company
                   </Label>
                   <Input
@@ -88,7 +94,7 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message" className="font-medium">
+                  <Label htmlFor="message" className="font-medium text-white">
                     Message
                   </Label>
                   <Textarea

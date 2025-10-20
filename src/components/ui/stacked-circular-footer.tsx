@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { Linkedin, Mail } from "lucide-react"
-import logo from '@/assets/activ8pay-logo-main.png'
+import logo from '@/assets/activ8pay-logo-white.png'
 import telegramIcon from '@/assets/telegram-icon.png'
+import gmailIcon from '@/assets/gmail-icon.png'
+import linkedinIcon from '@/assets/linkedin-icon.png'
 
 function StackedCircularFooter() {
   return (
@@ -21,13 +22,13 @@ function StackedCircularFooter() {
           <div className="mb-8 flex space-x-4">
             <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
               <a href="https://www.linkedin.com/company/activ8pay/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-4 w-4" />
+                <img src={linkedinIcon} alt="LinkedIn" className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </a>
             </Button>
             <Button variant="outline" size="icon" className="rounded-full border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
               <a href="mailto:solutions@activ8pay.com">
-                <Mail className="h-4 w-4" />
+                <img src={gmailIcon} alt="Email" className="h-4 w-4" />
                 <span className="sr-only">Email</span>
               </a>
             </Button>

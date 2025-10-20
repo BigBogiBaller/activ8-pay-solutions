@@ -74,8 +74,8 @@ export function NavBar({ items, className }: NavBarProps) {
             onClick={() => setActiveTab(item.name)}
             className={cn(
               "relative cursor-pointer text-sm font-semibold px-4 md:px-6 py-2 rounded-full transition-colors",
-              "text-foreground/80 hover:text-primary",
-              isActive && "bg-muted text-primary",
+              "text-[#0044CC]/70 hover:text-[#0044CC]",
+              isActive && "bg-muted text-[#0044CC]",
             )}
           >
             {Icon && isMobile ? (

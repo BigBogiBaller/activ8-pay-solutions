@@ -5,7 +5,7 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/hooks/use-scroll';
 import { NavBar } from '@/components/ui/tubelight-navbar';
 import { ArrowRight } from 'lucide-react';
-import logo from '@/assets/activ8pay-logo-main.png';
+import logo from '@/assets/activ8pay-logo-white.png';
 
 const menuItems = [
   { name: 'About', url: '#about' },
