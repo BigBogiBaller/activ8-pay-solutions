@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,11 +8,11 @@ export function Contact() {
   const contactMethods = [
     {
       icon: <Mail className="w-6 h-6" />,
-      contact: "Charles@activpay.com"
+      contact: "solutions@activ8pay.com"
     },
     {
-      icon: <Phone className="w-6 h-6" />,
-      contact: "+43 676 5024467"
+      icon: <MessageCircle className="w-6 h-6" />,
+      contact: "@activ8pay"
     },
     {
       icon: <MapPin className="w-6 h-6" />,

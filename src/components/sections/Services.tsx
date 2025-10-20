@@ -9,28 +9,28 @@ import { Marquee } from "@/components/ui/marquee";
 
 const files = [
   {
-    name: "Alternative Payment Methods",
-    body: "Support for diverse payment options including digital wallets, bank transfers, and local payment methods to maximize conversion rates.",
+    name: "Card Processing",
+    body: "Accept card payments globally with fast onboarding through top EU and US acquirers. We support Visa, Mastercard, Cartes Bancaires, Amex, JCB, and more — with tailored pricing and MCC coverage for your business model.",
   },
   {
-    name: "Corporate Banking Services",
-    body: "Comprehensive banking solutions tailored for businesses, including account management, transaction processing, and treasury services.",
+    name: "Corporate Banking",
+    body: "Access dedicated multi-currency IBANs for your pay-ins and pay-outs. Enjoy seamless connectivity with SWIFT, SEPA, SEPA Instant, and UK Faster Payments.",
   },
   {
-    name: "Payment Consulting",
-    body: "Expert guidance on payment strategy, optimization, and implementation to help your business scale efficiently.",
+    name: "Chargeback & Fraud Prevention",
+    body: "Protect your revenue with real-time alerts, automated dispute handling, and AI-driven fraud scoring. Integrated tools help you reduce chargebacks and improve approval ratios across your PSPs.",
   },
   {
-    name: "Compliance & Security",
-    body: "Industry-leading security measures and regulatory compliance support to protect your business and customers.",
+    name: "Stablecoin Payments",
+    body: "Send and receive USDT, USDC, or EURS instantly through compliant on/off-ramp partners. Secure, transparent, and settlement-ready for both merchants and service providers.",
   },
 ];
 
 const features = [
   {
     Icon: FileTextIcon,
-    name: "Alternative Payment Methods",
-    description: "Support for diverse payment options including digital wallets, bank transfers, and local payment methods to maximize conversion rates.",
+    name: "Card Processing",
+    description: "Accept card payments globally with fast onboarding through top EU and US acquirers. We support Visa, Mastercard, Cartes Bancaires, Amex, JCB, and more — with tailored pricing and MCC coverage for your business model.",
     href: "#contact",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
@@ -64,8 +64,8 @@ const features = [
   },
   {
     Icon: BellIcon,
-    name: "Corporate Banking Services",
-    description: "Comprehensive banking solutions tailored for businesses, including account management, transaction processing, and treasury services.",
+    name: "Corporate Banking",
+    description: "Access dedicated multi-currency IBANs for your pay-ins and pay-outs. Enjoy seamless connectivity with SWIFT, SEPA, SEPA Instant, and UK Faster Payments.",
     href: "#contact",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -75,8 +75,8 @@ const features = [
   },
   {
     Icon: Share2Icon,
-    name: "Payment Consulting",
-    description: "Expert guidance on payment strategy, optimization, and implementation to help your business scale efficiently.",
+    name: "Chargeback & Fraud Prevention",
+    description: "Protect your revenue with real-time alerts, automated dispute handling, and AI-driven fraud scoring. Integrated tools help you reduce chargebacks and improve approval ratios across your PSPs.",
     href: "#contact",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -86,8 +86,8 @@ const features = [
   },
   {
     Icon: CalendarIcon,
-    name: "Compliance & Security",
-    description: "Industry-leading security measures and regulatory compliance support to protect your business and customers.",
+    name: "Stablecoin Payments",
+    description: "Send and receive USDT, USDC, or EURS instantly through compliant on/off-ramp partners. Secure, transparent, and settlement-ready for both merchants and service providers.",
     className: "col-span-3 lg:col-span-1",
     href: "#contact",
     cta: "Learn more",
@@ -106,7 +106,7 @@ export function Services() {
     <section id="services" className="py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Products & Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Solutions</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Comprehensive payment solutions designed to streamline your business operations
           </p>

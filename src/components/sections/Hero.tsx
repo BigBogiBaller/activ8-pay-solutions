@@ -107,7 +107,7 @@ export function Hero() {
               </a>
 
               <h1 className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] font-bold">
-                Efficient Payment Solutions for Modern Business
+                Your Bridge to Reliable Payment Solutions for Modern Business
               </h1>
               <p className="mx-auto mt-8 max-w-2xl text-balance text-lg text-muted-foreground">
                 Specializing in Alternative Payment Methods (APMs) and corporate banking services. We provide consulting

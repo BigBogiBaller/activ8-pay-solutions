@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Linkedin, Mail } from "lucide-react"
+import { Linkedin, Mail, MessageCircle } from "lucide-react"
 import logo from '@/assets/activ8pay-logo-main.png'
 
 function StackedCircularFooter() {
@@ -19,15 +19,21 @@ function StackedCircularFooter() {
           </nav>
           <div className="mb-8 flex space-x-4">
             <Button variant="outline" size="icon" className="rounded-full" asChild>
-              <a href="https://www.linkedin.com/in/charles-baudin/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/activ8pay/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4" />
                 <span className="sr-only">LinkedIn</span>
               </a>
             </Button>
             <Button variant="outline" size="icon" className="rounded-full" asChild>
-              <a href="mailto:Charles@activpay.com">
+              <a href="mailto:solutions@activ8pay.com">
                 <Mail className="h-4 w-4" />
                 <span className="sr-only">Email</span>
+              </a>
+            </Button>
+            <Button variant="outline" size="icon" className="rounded-full" asChild>
+              <a href="https://t.me/activ8pay" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4" />
+                <span className="sr-only">Telegram</span>
               </a>
             </Button>
           </div>

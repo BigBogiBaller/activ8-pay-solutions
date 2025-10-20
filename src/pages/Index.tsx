@@ -2,7 +2,6 @@ import { Header } from '@/components/layout/Header';
 import { StackedCircularFooter } from '@/components/ui/stacked-circular-footer';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
-import { Founder } from '@/components/sections/Founder';
 import { Services } from '@/components/sections/Services';
 import { Industries } from '@/components/sections/Industries';
 import { FAQ } from '@/components/sections/FAQ';
@@ -15,7 +14,6 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <Founder />
         <Services />
         <Industries />
         <FAQ />
