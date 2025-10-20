@@ -84,8 +84,8 @@ const FeatureDescription = ({
       {children}
     </p>;
 };
-export const SkeletonOne = () => {
-  return <div className="relative flex py-8 px-2 gap-10 h-full">
+export const SkeletonOne = ({ className }: { className?: string }) => {
+  return <div className={cn("relative flex py-8 px-2 gap-10 h-full", className)}>
       <div className="w-full p-5 mx-auto shadow-2xl group h-full bg-[#0a1128]">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           <img src={dashboardSidebar} alt="Activ8Pay dashboard interface" className="h-full w-full aspect-square object-cover object-left-top rounded-sm scale-90" />

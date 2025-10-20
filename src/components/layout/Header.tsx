@@ -15,7 +15,7 @@ const menuItems = [
   { name: 'Contact', url: '#contact' },
 ];
 
-export function Header() {
+export function Header({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const scrolled = useScroll(50);
 
@@ -32,14 +32,7 @@ export function Header() {
 
   return (
     <header
-      className={cn(
-        'sticky top-0 z-50 mx-auto w-full border-b border-transparent md:transition-all md:ease-out',
-        {
-          'bg-[#0A1128]/95 supports-[backdrop-filter]:bg-[#0A1128]/50 border-[#E0E0E0] backdrop-blur-lg md:top-6 md:shadow':
-            scrolled && !open,
-          'bg-[#0A1128]/90': open,
-        }
-      )}
+      className="sticky top-0 z-50 mx-auto w-full md:transition-all md:ease-out"
     >
       <nav
         className={cn(
@@ -87,7 +80,7 @@ export function Header() {
       {/* Mobile Menu - Slide from Right */}
       <div
         className={cn(
-          'bg-[#0A1128]/95 backdrop-blur-lg fixed top-16 right-0 bottom-0 w-72 z-50 flex flex-col overflow-hidden border-l shadow-2xl md:hidden transform transition-transform duration-300 ease-in-out',
+          'bg-[#0A1128] backdrop-blur-lg fixed top-16 right-0 bottom-0 w-72 z-50 flex flex-col overflow-hidden border-l shadow-2xl md:hidden transform transition-transform duration-300 ease-in-out',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >
