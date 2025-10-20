@@ -12,7 +12,7 @@ const App = () => <QueryClientProvider client={queryClient}>
       <Sonner className="bg-[#0a1128]" />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} className="bg-[#0a1128]" />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
