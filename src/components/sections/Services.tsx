@@ -75,9 +75,8 @@ const features = [
   },
   {
     Icon: Share2Icon,
-    name: "Corporate Banking",
-    description: "Access dedicated multi-currency IBANs for your pay-ins and pay-outs. Enjoy seamless connectivity with SWIFT, SEPA, SEPA Instant, and UK Faster Payments.
-",
+    name: "Chargeback & Fraud Prevention",
+    description: "Protect your revenue with real-time alerts, automated dispute handling, and AI-driven fraud scoring. Integrated tools help you reduce chargebacks and improve approval ratios across your PSPs.",
     href: "#contact",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
