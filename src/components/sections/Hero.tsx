@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { FloatingIcons } from "./FloatingIcons";
 import { Logos3 } from "@/components/ui/logos3";
-import dashboardPreview from "@/assets/dashboard-preview.png";
+import dashboardPreview from "@/assets/dashboard-new.png";
 import jcbLogo from "@/assets/jcb-logo.png";
 import mastercardLogo from "@/assets/mastercard-logo.png";
 import visaLogo from "@/assets/visa-logo.png";

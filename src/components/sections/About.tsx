@@ -1,5 +1,6 @@
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import FeaturesSectionDemo from '@/components/ui/features-section-demo-3';
+import { FinanceChartDemo } from '@/components/ui/finance-chart-demo';
 import activ8payLogo from '@/assets/activ8pay-logo-main.png';
 
 export function About() {
@@ -31,6 +32,10 @@ export function About() {
             </p>
           </div>
         </AnimatedGroup>
+        
+        <div className="max-w-5xl mx-auto my-16">
+          <FinanceChartDemo />
+        </div>
         
         <FeaturesSectionDemo />
       </div>
