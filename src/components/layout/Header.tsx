@@ -35,9 +35,9 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 mx-auto w-full border-b border-transparent md:transition-all md:ease-out',
         {
-          'bg-background/95 supports-[backdrop-filter]:bg-background/50 border-border backdrop-blur-lg md:top-6 md:shadow':
+          'bg-white/95 supports-[backdrop-filter]:bg-white/50 border-[#E0E0E0] backdrop-blur-lg md:top-6 md:shadow':
             scrolled && !open,
-          'bg-background/90': open,
+          'bg-white/90': open,
         }
       )}
     >
@@ -65,7 +65,7 @@ export function Header() {
 
         {/* Book Demo Button - Desktop */}
         <div className="hidden md:flex">
-          <Button size="lg" asChild className="gap-2">
+          <Button size="lg" asChild className="gap-2 bg-[#B3CBB9] hover:bg-[#9fb8a6] text-[#0A1128]">
             <a href="#contact">
               Book a Demo
               <ArrowRight className="h-4 w-4" />
@@ -105,7 +105,7 @@ export function Header() {
             ))}
           </div>
           <div className="flex flex-col gap-2">
-            <Button className="w-full gap-2" size="lg" asChild>
+            <Button className="w-full gap-2 bg-[#B3CBB9] hover:bg-[#9fb8a6] text-[#0A1128]" size="lg" asChild>
               <a href="#contact" onClick={() => setOpen(false)}>
                 Book a Demo
                 <ArrowRight className="h-4 w-4" />

@@ -5,20 +5,20 @@ import activ8payLogo from '@/assets/activ8pay-logo-main.png';
 
 export function About() {
   return (
-    <section id="about" className="py-24 bg-secondary/30">
+    <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <AnimatedGroup preset="blur-slide" className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3 text-[#0A1128]">
               About <img src={activ8payLogo} alt="Activ8Pay" className="h-16 w-auto inline-block" />
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-[#0A1128]/70">
               Your trusted partner in payment solutions
             </p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="prose prose-lg max-w-none text-muted-foreground">
+            <div className="prose prose-lg max-w-none text-[#0A1128]/80">
               <p className="text-lg leading-relaxed">
                 At Activ8Pay, we connect forward-thinking businesses across all industries to a robust, reliable, and efficient global payment ecosystem.
               </p>

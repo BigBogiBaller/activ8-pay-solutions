@@ -22,28 +22,28 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-secondary/30">
+    <section id="contact" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-screen-xl mx-auto">
           <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
             <div className="max-w-lg space-y-3">
-              <h3 className="text-primary font-semibold">
+              <h3 className="text-[#0044CC] font-semibold">
                 Contact
               </h3>
-              <p className="text-foreground text-3xl font-semibold sm:text-4xl">
+              <p className="text-[#0A1128] text-3xl font-semibold sm:text-4xl">
                 Let us know how we can help
               </p>
-              <p className="text-muted-foreground">
+              <p className="text-[#0A1128]/70">
                 We're here to help and answer any question you might have. We look forward to hearing from you! Please fill out the form, or use the contact information below.
               </p>
               <div>
                 <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
                   {contactMethods.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-x-3">
-                      <div className="flex-none text-muted-foreground">
+                      <div className="flex-none text-[#0A1128]/60">
                         {item.icon}
                       </div>
-                      <p className="text-foreground">{item.contact}</p>
+                      <p className="text-[#0A1128]">{item.contact}</p>
                     </li>
                   ))}
                 </ul>
@@ -99,7 +99,7 @@ export function Contact() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full bg-[#B3CBB9] hover:bg-[#9fb8a6] text-[#0A1128]"
                   size="lg"
                 >
                   Submit

@@ -103,11 +103,11 @@ const features = [
 
 export function Services() {
   return (
-    <section id="services" className="py-24">
+    <section id="services" className="py-24 bg-[#0A1128]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Solutions</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Solutions</h2>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Comprehensive payment solutions designed to streamline your business operations
           </p>
         </div>

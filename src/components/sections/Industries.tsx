@@ -72,10 +72,10 @@ const industriesData = [
 
 export function Industries() {
   return (
-    <section id="industries" className="py-20 bg-background">
+    <section id="industries" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6 text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Industries We Serve</h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0A1128]">Industries We Serve</h2>
+        <p className="text-lg text-[#0A1128]/70 max-w-2xl mx-auto">
           Tailored payment solutions for diverse sectors
         </p>
       </div>
