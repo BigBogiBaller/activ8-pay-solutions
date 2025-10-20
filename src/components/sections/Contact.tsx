@@ -22,7 +22,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-[#0A1128]">
       <div className="container mx-auto px-6">
         <div className="max-w-screen-xl mx-auto">
           <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
@@ -30,20 +30,20 @@ export function Contact() {
               <h3 className="text-[#0044CC] font-semibold">
                 Contact
               </h3>
-              <p className="text-[#0A1128] text-3xl font-semibold sm:text-4xl">
+              <p className="text-white text-3xl font-semibold sm:text-4xl">
                 Let us know how we can help
               </p>
-              <p className="text-[#0A1128]/70">
+              <p className="text-white/70">
                 We're here to help and answer any question you might have. We look forward to hearing from you! Please fill out the form, or use the contact information below.
               </p>
               <div>
                 <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
                   {contactMethods.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-x-3">
-                      <div className="flex-none text-[#0A1128]/60">
+                      <div className="flex-none text-white/60">
                         {item.icon}
                       </div>
-                      <p className="text-[#0A1128]">{item.contact}</p>
+                      <p className="text-white">{item.contact}</p>
                     </li>
                   ))}
                 </ul>

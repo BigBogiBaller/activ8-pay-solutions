@@ -35,9 +35,9 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 mx-auto w-full border-b border-transparent md:transition-all md:ease-out',
         {
-          'bg-white/95 supports-[backdrop-filter]:bg-white/50 border-[#E0E0E0] backdrop-blur-lg md:top-6 md:shadow':
+          'bg-[#0A1128]/95 supports-[backdrop-filter]:bg-[#0A1128]/50 border-[#E0E0E0] backdrop-blur-lg md:top-6 md:shadow':
             scrolled && !open,
-          'bg-white/90': open,
+          'bg-[#0A1128]/90': open,
         }
       )}
     >
@@ -87,7 +87,7 @@ export function Header() {
       {/* Mobile Menu - Slide from Right */}
       <div
         className={cn(
-          'bg-background/95 backdrop-blur-lg fixed top-16 right-0 bottom-0 w-72 z-50 flex flex-col overflow-hidden border-l shadow-2xl md:hidden transform transition-transform duration-300 ease-in-out',
+          'bg-[#0A1128]/95 backdrop-blur-lg fixed top-16 right-0 bottom-0 w-72 z-50 flex flex-col overflow-hidden border-l shadow-2xl md:hidden transform transition-transform duration-300 ease-in-out',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >
@@ -96,7 +96,7 @@ export function Header() {
             {menuItems.map((item) => (
               <a
                 key={item.name}
-                className="text-base font-medium text-muted-foreground hover:text-primary transition-colors block px-4 py-3 rounded-lg hover:bg-muted"
+                className="text-base font-medium text-white/70 hover:text-white transition-colors block px-4 py-3 rounded-lg hover:bg-white/10"
                 href={item.url}
                 onClick={() => setOpen(false)}
               >
@@ -118,7 +118,7 @@ export function Header() {
       {/* Mobile Overlay */}
       {open && (
         <div
-          className="fixed inset-0 bg-background/50 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-[#0A1128]/50 backdrop-blur-sm z-40 md:hidden"
           onClick={() => setOpen(false)}
         />
       )}
