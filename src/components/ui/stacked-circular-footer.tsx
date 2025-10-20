@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { Linkedin, Mail, MessageCircle } from "lucide-react"
+import { Linkedin, Mail } from "lucide-react"
 import logo from '@/assets/activ8pay-logo-main.png'
+import telegramIcon from '@/assets/telegram-icon.png'
 
 function StackedCircularFooter() {
   return (
@@ -32,7 +33,7 @@ function StackedCircularFooter() {
             </Button>
             <Button variant="outline" size="icon" className="rounded-full" asChild>
               <a href="https://t.me/activ8pay" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4" />
+                <img src={telegramIcon} alt="Telegram" className="h-4 w-4" />
                 <span className="sr-only">Telegram</span>
               </a>
             </Button>

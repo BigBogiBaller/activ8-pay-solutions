@@ -1,8 +1,9 @@
-import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import telegramIcon from "@/assets/telegram-icon.png";
 
 export function Contact() {
   const contactMethods = [
@@ -11,7 +12,7 @@ export function Contact() {
       contact: "solutions@activ8pay.com"
     },
     {
-      icon: <MessageCircle className="w-6 h-6" />,
+      icon: <img src={telegramIcon} alt="Telegram" className="w-6 h-6" />,
       contact: "@activ8pay"
     },
     {
