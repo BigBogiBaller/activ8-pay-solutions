@@ -6,22 +6,18 @@ import { Services } from '@/components/sections/Services';
 import { Industries } from '@/components/sections/Industries';
 import { FAQ } from '@/components/sections/FAQ';
 import { Contact } from '@/components/sections/Contact';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       <main>
         <Hero />
         <About />
         <Services />
-        <Industries />
+        <Industries className="bg-[#0a1128]" />
         <FAQ />
         <Contact />
       </main>
       <StackedCircularFooter />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
