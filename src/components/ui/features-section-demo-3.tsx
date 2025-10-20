@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
 import { PaymentIconsAnimated } from "@/components/ui/payment-icons-animated";
-import { ProfileCard } from "@/components/ui/profile-card";
+import { ProfileNotificationAnimation } from "@/components/ui/profile-notification-animation";
 import { Visual247 } from "@/components/ui/visual-247";
 import dashboardSidebar from "@/assets/dashboard-sidebar.png";
 
@@ -132,7 +132,7 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
   return (
     <div className="relative flex gap-10 h-full items-center justify-center p-8 -mt-8">
-      <ProfileCard />
+      <ProfileNotificationAnimation />
     </div>
   );
 };
