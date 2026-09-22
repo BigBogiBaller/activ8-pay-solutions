@@ -87,7 +87,7 @@ export default function RadialOrbitalTimeline({
   };
 
   useEffect(() => {
-    let rotationTimer: NodeJS.Timeout;
+    let rotationTimer: ReturnType<typeof setInterval>;
 
     // Only auto-rotate on desktop
     if (autoRotate && viewMode === "orbital" && !isMobile) {
