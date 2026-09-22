@@ -120,9 +120,12 @@ export const Globe = ({
   useEffect(() => {
     let phi = 0;
     if (!canvasRef.current) return;
-    // Bail out gracefully when WebGL isn't available (cobe throws otherwise)
-    const gl = canvasRef.current.getContext("webgl") || canvasRef.current.getContext("experimental-webgl");
+    // Probe WebGL support on a throwaway canvas (probing the real one would
+    // lock its context type and break cobe)
+    const probe = document.createElement("canvas");
+    const gl = probe.getContext("webgl") || probe.getContext("experimental-webgl");
     if (!gl) return;
+
     let globe: { destroy: () => void } | null = null;
     try {
       globe = createGlobe(canvasRef.current, {
